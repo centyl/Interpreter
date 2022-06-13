@@ -1,0 +1,107 @@
+print(2 + 3 * 5)
+print(5 + 2 ** 3 * 4)
+print((7+2) / 3)
+
+x = 5
+y = x + 2
+print(x, y)
+
+x = y
+y-= 4
+print(x, y)
+
+function f(x) {
+  print('function f called with x=' + x)
+  x *= 5
+  print('returning ' + x)
+  return(x)
+}
+
+z = f(x)
+print(x, z)
+
+function g() {
+print('Function g called')
+return(0)
+}
+
+print('Function g should not be called if logical operations short circuit')
+p = 3 > 2 || g()
+p = 4 > 7 && g()
+
+function sum(x, y){
+return(x +y)
+}
+
+function sum(x, y, z){
+return(x+y+       z)
+}
+
+print(sum(4,6))
+print(sum(63, 2*3, 8**2))
+
+function isPrime(x) {
+  if (x == 0 || x == 1) {
+    return(0)
+  }
+  if (x == 2 || x == 3) {
+    return(1)
+  }
+  if (x % 2 == 0 || x % 3 == 0) {
+    return(0)
+  }
+  i = 5
+  c = sqrt(x)
+  while(i <= c) {
+    if ((x % i == 0) || (x % (i + 2) == 0)) {
+      return(0)
+	}
+    i += 6
+  }
+  return(1)
+}
+
+i = 3
+limit = 1000000
+primesFound = 1
+while (i < limit){
+primesFound += isPrime(i)
+i+=2
+}
+
+print('There are ' + primesFound + ' primes less than ' + limit)
+
+print((1,7,6,3,4).length)
+print((1,2,1,1,5,7,1,2).count(1))
+print((1,7,6,3,4).filter(x -> x % 2).map(u -> u * 2))
+
+constructor Point(x, y) {
+  this.set(x, x)
+  this.set(y, y)
+}
+
+function Point.str() {
+  return('Point: ' + this.x + char(44) + ' ' + this.y)
+}
+
+function Point.distance() {
+  return(sqrt(this.x ** 2 + this.y ** 2))
+}
+
+function Point.move(dx, dy) {
+  this.set(x, this.x + dx)
+  this.set(y, this.y + dy)
+}
+
+function Point.move(p) {
+  this.set(x, this.x + p.x)
+  this.set(y, this.y + p.y)
+}
+
+p = Point(2,5)
+print(p)
+p.move(0,3)
+print(p)
+p.move(Point(7,0-4))
+print(p)
+print('Distance from center: ' + p.distance())
